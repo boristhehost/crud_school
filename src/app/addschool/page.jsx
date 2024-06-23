@@ -1,14 +1,14 @@
 "use client";
-// import { PrimeReactProvider } from "primereact/api";
-// import "primereact/resources/themes/lara-light-indigo/theme.css"; // theme
-// // import "primeflex/primeflex.css"; // css utility
-// // import "primeicons/primeicons.css";
-// import "primereact/resources/primereact.css"; //
-// import ToastEle from "../Components/Toast";
+import { PrimeReactProvider } from "primereact/api";
+import "primereact/resources/themes/lara-light-indigo/theme.css"; // theme
+// import "primeflex/primeflex.css"; // css utility
+// import "primeicons/primeicons.css";
+import "primereact/resources/primereact.css"; //
+import ToastEle from "../components/Toast";
 
 // import { HOST } from "../constants";
 
-// import React, { useState, useEffect } from "react";
+import React, { useState, useEffect } from "react";
 import "./page.scss";
 import {
   AreStringsEmpty,
@@ -21,9 +21,9 @@ import PageNavigation from "../components/PageNavigation";
 
 const AddSchool = (props) => {
   // const [formData, setFormData] = useState({});
-  // const [errorVisibility, setErrorVisibility] = useState(false);
-  // const [errorMessage, setErrorMessage] = useState("");
-  // const [toastStatus, setToastStatus] = useState("");
+  const [errorVisibility, setErrorVisibility] = useState(false);
+  const [errorMessage, setErrorMessage] = useState("");
+  const [toastStatus, setToastStatus] = useState("");
 
   // useEffect(() => {
   //   console.log("formData: ", formData);
@@ -83,24 +83,40 @@ const AddSchool = (props) => {
   const onSubmit = async (e) => {
     e.preventDefault();
 
-    const formData = new FormData(e.currentTarget);
+    try {
+      const formData = new FormData(e.currentTarget);
 
-    const response = await fetch("/addschool/api", {
-      method: "POST",
-      body: formData,
-    });
+      const response = await fetch("/addschool/api", {
+        method: "POST",
+        body: formData,
+      });
 
-    const status = response.status;
+      const status = response.status;
 
-    const data = await response.json();
+      const data = await response.json();
 
-    console.log(status, data);
+      console.log(status, data);
+
+      if (status >= 400) {
+        setErrorMessage(data.message || "some error");
+        setErrorVisibility(true);
+
+        return;
+      }
+
+      setErrorMessage("School data added successfully");
+      setErrorVisibility(true);
+      setToastStatus("success");
+    } catch (err) {
+      setErrorMessage(data.message || "some error");
+      setErrorVisibility(true);
+    }
   };
 
   return (
     <div className="AddSchool">
       <PageNavigation pageName={"Show Schools"} link={"/ShowSchools"} />
-      {/* <PrimeReactProvider>
+      <PrimeReactProvider>
         <ToastEle
           errorVisibility={errorVisibility}
           errorMessage={errorMessage}
@@ -108,7 +124,7 @@ const AddSchool = (props) => {
           setStatus={setToastStatus}
           status={toastStatus}
         />
-      </PrimeReactProvider> */}
+      </PrimeReactProvider>
       {/* <form action="/addschool/api" method="POST"> */}
       <form onSubmit={onSubmit}>
         <h2>School Information Form</h2>
