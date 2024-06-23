@@ -29,7 +29,7 @@ export default function Home() {
           <br />{" "}
           <button>
             {" "}
-            <Link href={"/showschools"}> ShowSchools </Link>
+            <Link href={"/ShowSchools"}> ShowSchools </Link>
           </button>{" "}
         </div>
       </div>

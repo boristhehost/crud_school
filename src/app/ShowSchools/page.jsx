@@ -22,11 +22,11 @@ import { connectToDb } from "../_lib/db";
 //   });
 
 const ShowSchools = (props) => {
+  const cookieStore = cookies();
+  console.log(cookieStore.get("results"));
+
   const getSchoolDataArray = async () => {
     const { dbConnection, err } = await connectToDb();
-
-    const cookieStore = cookies();
-    console.log(cookieStore.get("results"));
 
     if (err) {
       console.log("err: ", err);
