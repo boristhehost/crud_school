@@ -12,6 +12,8 @@ export async function POST(request) {
 
   let imageUrl = "";
 
+  console.log(process.env.BLOB_READ_WRITE_TOKEN);
+
   const formData = await request.formData();
 
   console.log(formData);
