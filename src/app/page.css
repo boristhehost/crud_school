@@ -1,0 +1,65 @@
+/* #root { */
+/*   max-width: 1280px; */
+/*   margin: 0 auto; */
+/*   padding: 2rem; */
+/*   text-align: center; */
+/* } */
+/**/
+
+html,
+body,
+#root,
+.App {
+  width: 100%;
+  height: 100%;
+  background: rgb(210, 210, 210);
+}
+
+body {
+  margin: 0;
+}
+
+.App {
+  display: flex;
+  justify-content: center;
+
+  /* background: rgb(210, 210, 210); */
+}
+
+.Section {
+  width: 70%;
+  min-width: 300px;
+  margin-top: 50px;
+  text-align: center;
+  font-size: 1.5rem;
+  background: white;
+}
+
+.Section h3 {
+  background: rgba(0, 0, 0, 0.4);
+}
+
+.Section button {
+  font-size: 1.5rem;
+  cursor: pointer;
+  border: none;
+  border-radius: 3px;
+  padding: 0.5rem 1rem;
+  background: darkblue;
+  color: white;
+  transition: all 0.3s;
+}
+
+.Section button a {
+  color: inherit;
+  text-decoration: inherit;
+}
+
+.Section button:hover {
+  background: blue;
+}
+
+.Section-1 {
+  background: whitesmoke;
+  margin: 100px 0;
+}

@@ -1,0 +1,11 @@
+$bg-color: #f4f4f4;
+$form-bg-color: #fff;
+$submit-btn-color: #4caf50;
+
+$light-black: #555;
+$dark-black: #333;
+@mixin mobile {
+  @media (max-width: 400px) {
+    @content;
+  }
+}

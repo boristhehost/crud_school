@@ -1,0 +1,50 @@
+html,
+body {
+  margin: 0;
+  padding: 0;
+  height: 100%;
+  // height: min(100%, fit-content);
+}
+
+.ShowSchools {
+  width: 100%;
+  // height: 100vh;
+  background: rgb(240, 240, 240);
+  min-height: 515px;
+  // height: max(100%, fit-content);
+  min-height: 100%;
+  height: fit-content;
+}
+
+.heading {
+  padding: 1px;
+  height: 100px;
+  h1 {
+    text-align: center;
+  }
+  //   margin-top: 1rem;
+  margin-bottom: 1rem;
+}
+.container {
+  width: 75%;
+  min-width: 400px;
+  // min-height: 400px;
+  // min-height: 100vh;
+
+  background: white;
+  min-height: calc(100vh - (100px + 16px + 1px + 2px));
+  // height: calc(100% - (100px + 16px + 1px + 2px));
+  // height: fit-content;
+  // height: max(100%, fit-content);
+
+  // min-height: max(calc(100vh - (100px + 16px + 1px + 2px)), fit-content);
+  // overflow: auto;
+  margin: 0 auto;
+
+  border-radius: 10px;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+
+  display: flex;
+  justify-content: space-around;
+  flex-wrap: wrap;
+}
