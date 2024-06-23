@@ -5,6 +5,8 @@
 // import "primereact/resources/primereact.css"; //
 // import ToastEle from "../Components/Toast";
 
+import { cookies } from "next/headers";
+
 // import React, { useEffect, useState } from "react";
 import "./page.scss";
 
@@ -22,6 +24,9 @@ import { connectToDb } from "../_lib/db";
 const ShowSchools = (props) => {
   const getSchoolDataArray = async () => {
     const { dbConnection, err } = await connectToDb();
+
+    const cookieStore = cookies();
+    console.log(cookieStore.get("results"));
 
     if (err) {
       console.log("err: ", err);
